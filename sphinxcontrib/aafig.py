@@ -20,11 +20,11 @@ except ImportError:
     from sha import sha
 
 from docutils import nodes
-from docutils.parsers.rst.directives import images, nonnegative_int, flag
+from docutils.parsers.rst import directives
+from docutils.parsers.rst.directives import images
 
 from sphinx.errors import SphinxError
 from sphinx.util import ensuredir, relative_uri
-from sphinx.util.compat import Directive
 
 try:
     import aafigure
@@ -66,9 +66,9 @@ class AafigDirective(images.Image):
         background   = str,
         foreground   = str,
         fill         = str,
-        aspect       = nonnegative_int,
-        textual      = flag,
-        proportional = flag,
+        aspect       = directives.nonnegative_int,
+        textual      = directives.flag,
+        proportional = directives.flag,
     )
     option_spec = images.Image.option_spec.copy()
     option_spec.update(own_option_spec)
