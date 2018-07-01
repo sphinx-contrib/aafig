@@ -2,6 +2,16 @@
 
 This file describes user-visible changes between the extension versions.
 
+Version 1.1.0 (2018-07-01)
+--------------------------
+
+* Fixes for recent sphinx and docutils versions
+* fix aafig.py portion of issue #59, sphinxcontrib-aafig error in v1.2.1+
+* Moved README -> README.rst
+* Clean and improve the maintainer documentation
+* Add maintainer documentation
+* Fix "Development Status" classifier in setup.py
+
 
 Version 1.0 (2009-11-15)
 ------------------------
