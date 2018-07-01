@@ -54,7 +54,7 @@ requires = ['Sphinx>=0.6', 'aafigure>=0.3']
 
 setup(
     name='sphinxcontrib-aafig',
-    version='1.0.3',
+    version='1.2.0',
     url='http://packages.python.org/sphinxcontrib-aafig/',
     download_url='http://pypi.python.org/pypi/sphinxcontrib-aafig',
     license='BOLA',
