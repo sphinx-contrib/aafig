@@ -46,7 +46,7 @@ def get_basename(text, options, prefix='aafig'):
     options = options.copy()
     if 'format' in options:
         del options['format']
-    hashkey = text.encode('utf-8') + str(options)
+    hashkey = text.encode('utf-8') + str(options).encode('utf-8')
     id = sha(hashkey).hexdigest()
     return '%s-%s' % (prefix, id)
 
@@ -76,7 +76,7 @@ class AafigDirective(images.Image):
     def run(self):
         aafig_options = dict()
         image_attrs = dict()
-        own_options_keys = self.own_option_spec.keys() + ['scale']
+        own_options_keys = list(self.own_option_spec.keys()) + ['scale']
         for (k, v) in self.options.items():
             if k in own_options_keys:
                 # convert flags to booleans
@@ -92,7 +92,7 @@ class AafigDirective(images.Image):
         if isinstance(image_node, nodes.system_message):
             return [image_node]
         text = '\n'.join(self.content)
-	image_node.aafig = dict(options = aafig_options, text = text)
+        image_node.aafig = dict(options = aafig_options, text = text)
         return [image_node]
 
 
@@ -125,7 +125,7 @@ def render_aafig_images(app, doctree):
             continue
         try:
             fname, outfn, id, extra = render_aafigure(app, text, options)
-        except AafigError, exc:
+        except AafigError as exc:
             app.builder.warn('aafigure error: ' + str(exc))
             img.replace_self(nodes.literal_block(text, text))
             continue
@@ -187,14 +187,14 @@ def render_aafigure(app, text, options):
 
     try:
         (visitor, output) = aafigure.render(text, outfn, options)
-	output.close()
-    except aafigure.UnsupportedFormatError, e:
+        output.close()
+    except aafigure.UnsupportedFormatError as e:
         raise AafigError(str(e))
 
     extra = None
     if options['format'].lower() == 'svg':
         extra = visitor.get_size_attrs()
-        f = file(metadata_fname, 'w')
+        f = open(metadata_fname, 'w')
         f.write(extra)
         f.close()
 
