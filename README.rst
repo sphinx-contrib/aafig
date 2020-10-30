@@ -4,6 +4,8 @@
 aafigure extension for Sphinx
 =============================
 
+|pypi version| |pypi status| |pypi downloads|
+
 :author: Leandro Lucarella <luca@llucax.com>
 
 
@@ -179,3 +181,13 @@ TODO
 .. _PIL: http://www.pythonware.com/products/pil/
 .. _PyPI: http://pypi.python.org/pypi
 
+.. PyPi badges:
+.. |pypi version| image:: https://img.shields.io/pypi/v/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Version
+.. |pypi status| image:: https://img.shields.io/pypi/status/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Status
+.. |pypi downloads| image:: https://img.shields.io/pypi/dm/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Downloads
