@@ -4,7 +4,7 @@ Maintainer documentation
 ========================
 
 This document contains notes for developers and packagers. End users probably
-want to read ``README`` and the files in the ``doc`` directory instead.
+want to read ``README.rst`` and the files in the ``doc`` directory instead.
 
 
 PyPi Release
