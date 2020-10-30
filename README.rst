@@ -4,7 +4,7 @@
 aafigure extension for Sphinx
 =============================
 
-:author: Leandro Lucarella <llucax@gmail.com>
+:author: Leandro Lucarella <luca@llucax.com>
 
 
 About

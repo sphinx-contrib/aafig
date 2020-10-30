@@ -42,7 +42,7 @@ setup(
     download_url='http://pypi.python.org/pypi/sphinxcontrib-aafig',
     license='BOLA',
     author='Leandro Lucarella',
-    author_email='llucax@gmail.com',
+    author_email='luca@llucax.com',
     description='aafig Sphinx extension',
     long_description=long_desc,
     zip_safe=False,
