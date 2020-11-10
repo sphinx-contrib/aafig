@@ -21,10 +21,13 @@ PyPi Release
 6. Temporarily modify the ``setup.cfg`` file to comment out the variables
    ``tag_build = dev`` and ``tag_date = true`` (do **not** commit this
    changes).
-7. Register and upload the new release ``python setup.py register sdist
-   upload``.
-8. Generate the documentation with ``make -C doc zip``.
-9. Upload the new documentation (``doc/_build/sphinxcontrib-aafig-doc.zip``) to
-   PyPi: http://pypi.python.org/pypi?%3Aaction=pkg_edit&name=sphinxcontrib-aafig
+7. Usually it is a good idea to have a virtualenv to do all this:
+   ``virtualenv venv; . venv/bin/activate``.
+8. Make sure build dependencies are installed: ``pip install twine``.
+9. Build the new release source distribution ``python setup.py sdist``.
+10. Sign the created package: ``gpg --detach-sign -a
+    dist/sphinxcontrib-aafig-X.Y.Z.tar.gz``
+11. Upload using twine: ``twine upload
+    dist/sphinxcontrib-aafig-X.Y.Z.tar.gz*``.
 
 .. vim: set filetype=rst :
