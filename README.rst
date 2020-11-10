@@ -1,10 +1,12 @@
 .. -*- restructuredtext -*-
 
-=============================
-aafigure extension for Sphinx
-=============================
+===========================================================================
+aafigure extension for Sphinx |Sponsor|\ |GHS|\ |LP|\ |PP|\ |BMC|\ |P|\ |F|
+===========================================================================
 
-:author: Leandro Lucarella <llucax@gmail.com>
+|pypi version| |pypi status| |pypi downloads|
+
+:author: Leandro Lucarella <luca@llucax.com>
 
 
 About
@@ -179,3 +181,29 @@ TODO
 .. _PIL: http://www.pythonware.com/products/pil/
 .. _PyPI: http://pypi.python.org/pypi
 
+.. Sponsoring badge:
+.. |Sponsor| image:: https://img.shields.io/badge/-Sponsor-555555?style=flat-square
+   :target: https://github.com/llucax/llucax/blob/main/sponsoring-platforms.md
+.. |GHS| image:: https://img.shields.io/badge/--ea4aaa?logo=github&style=flat-square
+   :target: https://github.com/sponsors/llucax
+.. |LP| image:: https://img.shields.io/badge/--f6c915?logo=liberapay&logoColor=black&style=flat-square
+   :target: https://liberapay.com/llucax/donate
+.. |PP| image:: https://img.shields.io/badge/--0070ba?logo=paypal&style=flat-square
+   :target: https://www.paypal.com/donate?hosted_button_id=UZRR3REUC4SY2
+.. |BMC| image:: https://img.shields.io/badge/--ff813f?logo=buy-me-a-coffee&logoColor=white&style=flat-square
+   :target: https://www.buymeacoffee.com/llucax
+.. |P| image:: https://img.shields.io/badge/--f96854?logo=patreon&logoColor=white&style=flat-square
+   :target: https://www.patreon.com/llucax
+.. |F| image:: https://img.shields.io/badge/--6bc76b?logo=flattr&logoColor=white&style=flat-square
+   :target: https://flattr.com/@llucax
+
+.. PyPi badges:
+.. |pypi version| image:: https://img.shields.io/pypi/v/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Version
+.. |pypi status| image:: https://img.shields.io/pypi/status/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Status
+.. |pypi downloads| image:: https://img.shields.io/pypi/dm/sphinxcontrib-aafig
+   :target: https://pypi.org/project/sphinxcontrib-aafig/
+   :alt: PyPI - Downloads
