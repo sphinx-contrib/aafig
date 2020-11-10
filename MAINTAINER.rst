@@ -13,7 +13,7 @@ PyPi Release
 1. Make sure the repository is up-to date.
 2. Ensure the version is incremented:
    - ``setup.py``  must be updated
-   - ``doc/config.py``  must be updated
+   - ``doc/conf.py``  must be updated
    - ``CHANGES.txt``  must contain a summary of the changes
 3. Make sure all changes are committed, including the version number changes.
 4. Tag the sources with ``hg tag -m 'Tag aafig-X.Y' aafig-X.Y``.
