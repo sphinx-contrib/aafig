@@ -1,0 +1,4 @@
+*.pyc
+dist/
+doc/_build/
+sphinxcontrib_aafig.egg-info/

@@ -2,6 +2,25 @@
 
 This file describes user-visible changes between the extension versions.
 
+Version 1.2.0 (2020-10-30)
+--------------------------
+
+* Add support for Python3 😬
+* (see version 1.1.0 changelog if you are getting this from pypi)
+
+Version 1.1.0 (2018-07-01)
+--------------------------
+
+(this version was actually unreleased in pipy, only a tag was created in GitHub
+but the release never happened)
+
+* Fixes for recent sphinx and docutils versions
+* fix aafig.py portion of issue #59, sphinxcontrib-aafig error in v1.2.1+
+* Moved README -> README.rst
+* Clean and improve the maintainer documentation
+* Add maintainer documentation
+* Fix "Development Status" classifier in setup.py
+
 
 Version 1.0 (2009-11-15)
 ------------------------
