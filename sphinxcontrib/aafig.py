@@ -18,6 +18,7 @@ try:
     from hashlib import sha1 as sha
 except ImportError:
     from sha import sha
+import warnings
 
 from docutils import nodes
 from docutils.parsers.rst import directives
@@ -77,7 +78,8 @@ class AafigDirective(images.Image):
         aafig_options = dict()
         image_attrs = dict()
         own_options_keys = list(self.own_option_spec.keys()) + ['scale']
-        for (k, v) in self.options.items():
+        for (k, v) in tuple(self.options.keys()):
+            v = self.options[k]
             if k in own_options_keys:
                 # convert flags to booleans
                 if v is None:
@@ -96,12 +98,22 @@ class AafigDirective(images.Image):
         return [image_node]
 
 
+def warn(app, message):
+    """ Wrapper for warnings emitter to support builders without warn() method
+    """
+    if hasattr(app.builder, 'warn'):
+        app.builder.warn(message)
+    else:
+        warnings.warn(message)
+
+
 def render_aafig_images(app, doctree):
     format_map = app.builder.config.aafig_format
     merge_dict(format_map, DEFAULT_FORMATS)
     if aafigure is None:
-        app.builder.warn('aafigure module not installed, ASCII art images '
-                'will be redered as literal text')
+        message = 'aafigure module not installed, ASCII art images will be' \
+            'rendered as literal text'
+        warn(app, message)
     for img in doctree.traverse(nodes.image):
         if not hasattr(img, 'aafig'):
             continue
@@ -115,9 +127,10 @@ def render_aafig_images(app, doctree):
         if format in format_map:
             options['format'] = format_map[format]
         else:
-            app.builder.warn('unsupported builder format "%s", please '
-                    'add a custom entry in aafig_format config option '
-                    'for this builder' % format)
+            message = 'unsupported builder format "%s", please ' \
+                    'add a custom entry in aafig_format config option ' \
+                    'for this builder' % format
+            warn(app, message)
             img.replace_self(nodes.literal_block(text, text))
             continue
         if options['format'] is None:
@@ -126,7 +139,8 @@ def render_aafig_images(app, doctree):
         try:
             fname, outfn, id, extra = render_aafigure(app, text, options)
         except AafigError as exc:
-            app.builder.warn('aafigure error: ' + str(exc))
+            message = 'aafigure error: ' + str(exc)
+            warn(app, message)
             img.replace_self(nodes.literal_block(text, text))
             continue
         img['uri'] = fname
@@ -157,10 +171,11 @@ def render_aafigure(app, text, options):
     else:
         # Non-HTML
         if app.builder.format != 'latex':
-            app.builder.warn('aafig: the builder format %s is not officially '
-                    'supported, aafigure images could not work. Please report '
-                    'problems and working builder to avoid this warning in '
-                    'the future' % app.builder.format)
+            message = 'aafig: the builder format %s is not officially ' \
+                'supported, aafigure images could not work. Please report ' \
+                'problems and working builder to avoid this warning in ' \
+                'the future' % app.builder.format
+            warn(app, message)
         relfn = fname
         outfn = path.join(app.builder.outdir, fname)
     metadata_fname = '%s.aafig' % outfn
